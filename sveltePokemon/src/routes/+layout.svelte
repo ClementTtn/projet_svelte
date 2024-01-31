@@ -3,7 +3,7 @@
     export let data
     const pokemons = data.Pokemons
     $: leader = data.leader
-    $: imgFighter = pokemons.find(pokemon => pokemon.id === leader.id)
+    $: imgFighter = pokemons.find(pokemon => pokemon.id === leader?.id)
 </script>
 
 <header>
