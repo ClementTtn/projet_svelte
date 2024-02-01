@@ -5,11 +5,11 @@ export async function load({depends}) {
 	depends('p:all')
 
 	const sortedFightersName = readFighters().sort((a, b) => {
-		return a.name.localeCompare(b.name);
-	});
+		return a.name.localeCompare(b.name)
+	})
 
 	const sortedFightersPoints = readFighters().sort((a, b) => {
-		return b.points - a.points;
+		return b.points - a.points
 	})
 
 	const leader = getLeader(sortedFightersName)
@@ -19,5 +19,5 @@ export async function load({depends}) {
 		FightersPoints: sortedFightersPoints,
 		leader: leader,
 		Pokemons
-	};
+	}
 }

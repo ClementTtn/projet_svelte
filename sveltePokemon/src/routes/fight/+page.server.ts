@@ -4,9 +4,7 @@ import type { ResultOfFight, Fighter } from '$lib/types.js'
 export async function load({url: { searchParams }, parent}) {
     const uuid1 = searchParams.get('uuid1')
     const uuid2 = searchParams.get('uuid2')
-
     const layoutData = await parent()
-    
     const fighter1 = layoutData.FightersName.find(fighter => fighter.uuid === uuid1)
     const fighter2 = layoutData.FightersName.find(fighter => fighter.uuid === uuid2)
 
@@ -33,8 +31,7 @@ export const actions: Actions = {
 
         return {
             status: 200,
-            body: 'Résultat créé',
-        };
-
+            body: 'Résultat créé'
+        }
 	}
 }

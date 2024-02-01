@@ -1,11 +1,11 @@
 <script lang="ts">
     export let data
     const pokemons = data.Pokemons
-    $: fighters = data.FightersPoints.sort((a, b) => b.points - a.points);
+    $: fighters = data.FightersPoints.sort((a, b) => b.points - a.points)
 
     function getPokemonImage(fighterId) {
-        const pokemon = pokemons.find(pokemon => pokemon.id === fighterId);
-        return pokemon ? pokemon.sprites.front_default : '';
+        const pokemon = pokemons.find(pokemon => pokemon.id === fighterId)
+        return pokemon ? pokemon.sprites.front_default : ''
     }
 </script>
 
@@ -17,27 +17,27 @@
 
 <div class="listFighter">
     {#each fighters as fighter (fighter.uuid)}
-    <li>
-        <div class="cardFighter">
-            <img src={getPokemonImage(fighter.id)} alt={fighter.name} />
-            <b>{fighter.name}</b>
-            <p>Points: {fighter.points}</p>
-            <button><a href="/detailFighter?uuid={fighter.uuid}">Détails</a></button>
-        </div>
-    </li>
+        <li>
+            <div class="cardFighter">
+                <img src={getPokemonImage(fighter.id)} alt={fighter.name} />
+                <b>{fighter.name}</b>
+                <p>Points: {fighter.points}</p>
+                <button><a href="/detailFighter?uuid={fighter.uuid}">Détails</a></button>
+            </div>
+        </li>
     {/each}
 </div>
 
 
 <style>
-    .listFighter{
+    .listFighter {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         list-style: none;
         justify-content: center;
     }
-    .cardFighter{
+    .cardFighter {
         display: flex;
         flex-direction: column;
         text-align: center;

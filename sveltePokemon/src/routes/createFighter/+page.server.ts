@@ -14,13 +14,13 @@ export const actions: Actions = {
 			points: 0,
 			pv: rand(200, 50),
 			force: rand(50, 20)
-		};
+		}
 
 		createFighter(fighter)
 
 		return {
             status: 200,
-            body: 'Combattant créé',
-        };
+            body: 'Combattant créé'
+        }
 	}
 }

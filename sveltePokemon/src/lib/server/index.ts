@@ -1,12 +1,12 @@
 import type { Fighter, ResultOfFight } from '$lib/types'
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs"
 
 let fighters: Fighter[] = readFighters()
 let results: ResultOfFight[] = readResults()
 
 export function readFighters(): Fighter[] {
 	try {
-		const data = readFileSync("generated/fighters.json", "utf-8");
+		const data = readFileSync("generated/fighters.json", "utf-8")
 		return JSON.parse(data)
 	} catch (e) {
         console.log('No file')
@@ -16,10 +16,10 @@ export function readFighters(): Fighter[] {
 
 export function getLeader(fighters: Fighter[]): Fighter | null {
     if (fighters.length === 0) {
-        return null;
+        return null
     }
-    const sortedFighters = fighters.slice().sort((a, b) => b.points - a.points);
-    return sortedFighters[0];
+    const sortedFighters = fighters.slice().sort((a, b) => b.points - a.points)
+    return sortedFighters[0]
 }
 
 export function createFighter(fighter: Fighter) {
@@ -47,7 +47,7 @@ export function saveFighter() {
 
 export function readResults(): ResultOfFight[] {
 	try {
-		const data = readFileSync("generated/results.json", "utf-8");
+		const data = readFileSync("generated/results.json", "utf-8")
 		return JSON.parse(data)
 	} catch (e) {
         console.log('No file')

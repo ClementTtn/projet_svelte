@@ -1,22 +1,22 @@
 <script lang="ts">
     export let data
     const pokemons = data.Pokemons
-    $: fighters = data.FightersName.sort((a, b) => a.name.localeCompare(b.name));
+    $: fighters = data.FightersName.sort((a, b) => a.name.localeCompare(b.name))
     $: selectedFighters = []
     $: urlFight = `/fight?uuid1=${selectedFighters[0]}&uuid2=${selectedFighters[1]}`
 
     function getPokemonImage(fighterId) {
-        const pokemon = pokemons.find(pokemon => pokemon.id === fighterId);
-        return pokemon ? pokemon.sprites.front_default : '';
+        const pokemon = pokemons.find(pokemon => pokemon.id === fighterId)
+        return pokemon ? pokemon.sprites.front_default : ''
     }
 
     function selectFighter(uuid) {
-    if (selectedFighters.length === 2 || selectedFighters.includes(uuid)) {
-        selectedFighters = selectedFighters.filter((selectedUuid) => selectedUuid !== uuid)
-    } else {
-        selectedFighters = [...selectedFighters, uuid]
+        if (selectedFighters.length === 2 || selectedFighters.includes(uuid)) {
+            selectedFighters = selectedFighters.filter((selectedUuid) => selectedUuid !== uuid)
+        } else {
+            selectedFighters = [...selectedFighters, uuid]
+        }
     }
-}
 </script>
 
 <svelte:head>
@@ -28,16 +28,16 @@
 
 <div class="listFighter">
     {#each fighters as fighter (fighter.uuid)}
-    <li>
-        <div class="cardFighter">
-            <img src={getPokemonImage(fighter.id)} alt={fighter.name} />
-            <b>{fighter.name}</b>
-            <p>Points: {fighter.points}</p>
-            <p>PV: {fighter.pv}</p>
-            <p>Attaque: {fighter.force}</p>
-            <button on:click={() => {selectFighter(fighter.uuid)}} class:selectedFighter={selectedFighters.includes(fighter.uuid)}>Sélectionner</button>
-        </div>
-    </li>
+        <li>
+            <div class="cardFighter">
+                <img src={getPokemonImage(fighter.id)} alt={fighter.name} />
+                <b>{fighter.name}</b>
+                <p>Points: {fighter.points}</p>
+                <p>PV: {fighter.pv}</p>
+                <p>Attaque: {fighter.force}</p>
+                <button on:click={() => {selectFighter(fighter.uuid)}} class:selectedFighter={selectedFighters.includes(fighter.uuid)}>Sélectionner</button>
+            </div>
+        </li>
     {/each}
 </div>
 
@@ -111,4 +111,3 @@
         cursor: not-allowed;
     }
 </style>
-

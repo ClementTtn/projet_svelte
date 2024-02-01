@@ -24,7 +24,7 @@
 </main>
 
 <style>
-    header nav{
+    header nav {
         margin-top: 1rem;
         display: flex;
         flex-direction: row;
@@ -32,7 +32,7 @@
         border-bottom: 1px solid black;
         padding-bottom: 0.5rem;
     }
-    nav p a{
+    nav p a {
         text-decoration: none;
         color: white;
         margin-right: 2rem;
@@ -47,11 +47,11 @@
         justify-content: flex-end;
         align-items: center;
     }
-    .leader p{
+    .leader p {
         display: flex;
         align-items: center;
     }
-    .leader img{
+    .leader img {
         width: 40px;
         height: 40px;
         margin: 0 5px;

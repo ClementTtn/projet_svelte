@@ -3,17 +3,15 @@
     const pokemons = data?.Pokemons
     const fighter = data.fighter
     const listFighters = data.listFighters
-
     const imgFighter = pokemons.find(pokemon => pokemon.id === fighter.id)
 
-    $: results = data.results;
+    $: results = data.results
 
     function getFighterName(fighterUuid) {
-        const nameFighter = listFighters.find(nameFighter => nameFighter.uuid === fighterUuid);
-        return nameFighter ? nameFighter.name : '';
+        const nameFighter = listFighters.find(nameFighter => nameFighter.uuid === fighterUuid)
+        return nameFighter ? nameFighter.name : ''
     }
 </script>
-
 
 <svelte:head>
 	<title>Profil de {fighter?.name}</title>
@@ -35,31 +33,31 @@
     <h2>Historique des combats</h2>
     {#each results as result }
         {#if result.uuid1 === fighter.uuid || result.uuid2 === fighter.uuid}
-        <li>
-            <div class="result">
-                {#if result.winner === fighter.uuid}
-                    <p class="victoire">Victoire : </p>
-                {:else if result.winner === null}
-                    <p>Egalité : </p>
-                {:else}
-                    <p class="defaite">Défaite : </p>
-                {/if}
-                <p> {getFighterName(result.uuid1)} VS {getFighterName(result.uuid2)}</p>
-            </div>
-        </li>
+            <li>
+                <div class="result">
+                    {#if result.winner === fighter.uuid}
+                        <p class="victoire">Victoire : </p>
+                    {:else if result.winner === null}
+                        <p>Egalité : </p>
+                    {:else}
+                        <p class="defaite">Défaite : </p>
+                    {/if}
+                    <p> {getFighterName(result.uuid1)} VS {getFighterName(result.uuid2)}</p>
+                </div>
+            </li>
         {/if}
     {/each}
 </div>
 
 
 <style>
-    .fighters{
+    .fighters {
         display: flex;
         flex-direction: row;
         justify-content: center;
         margin: 5rem 0;
     }
-    .fighter{
+    .fighter {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -69,19 +67,19 @@
         padding: 2rem;
         text-align: center;
     }
-    .fighter img{
+    .fighter img {
         width: 100px;
         height: 100px;
     }
-    .results{
+    .results {
         display: flex;
         align-items: center;
         flex-direction: column;
     }
-    .results li{
+    .results li {
         list-style: none;
     }
-    .result{
+    .result {
         display: flex;
         flex-direction: row;
     }

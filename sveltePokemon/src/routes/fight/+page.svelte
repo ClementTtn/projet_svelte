@@ -10,13 +10,11 @@
 	$: fighter2 = data.fighter2
     let initialPvFighter1
     let initialPvFighter2
-
     const pokemons = data?.Pokemons
     const imgFighter1 = pokemons.find(pokemon => pokemon.id === data.fighter1?.id)
     const imgFighter2 = pokemons.find(pokemon => pokemon.id === data.fighter2?.id)
-
     let round = 1
-    let resultFight: ResultOfFight | null;
+    let resultFight: ResultOfFight | null
 
     function startFight(interval) {
         if (fighter1 && fighter2) {
@@ -35,22 +33,22 @@
 
     function getResultFight() {
         if (fighter1 && fighter2) {
-            let nameWinner = null;
+            let nameWinner = null
             let result: ResultOfFight = {
                 uuid1: fighter1.uuid,
                 uuid2: fighter2.uuid,
                 winner: null,
-            };
+            }
 
             if (fighter1.pv <= 0 && fighter2.pv > 0) {
-                result.winner = fighter2.uuid;
-                nameWinner = fighter2.name;
+                result.winner = fighter2.uuid
+                nameWinner = fighter2.name
             } else if (fighter2.pv <= 0 && fighter1.pv > 0) {
-                result.winner = fighter1.uuid;
-                nameWinner = fighter1.name;
+                result.winner = fighter1.uuid
+                nameWinner = fighter1.name
             } else {
-                result.winner = "";
-                nameWinner = null;
+                result.winner = ""
+                nameWinner = null
             }
 
             fetch('/fight', {
@@ -64,13 +62,12 @@
                     winner: result.winner,
                 }),
             }).then(() => {
-                invalidate('p:all');
-            });
-
-            return { result, nameWinner };
+                invalidate('p:all')
+            })
+            return { result, nameWinner }
         }
-        return null;
-}
+        return null
+    }
 
     onMount(() => {
         if (data && data.fighter1 && data.fighter2) {
@@ -81,16 +78,15 @@
             initialPvFighter2 = fighter2.pv
             
             const interval = setInterval(() => {
-				startFight(interval);
-			}, 2000);
+				startFight(interval)
+			}, 2000)
 
 			return () => {
-				clearInterval(interval);
-			};
+				clearInterval(interval)
+			}
         }
     })
 </script>
-
 
 <svelte:head>
 	<title>{fighter1.name} VS {fighter2.name}</title>
@@ -127,16 +123,15 @@
     {/if}
 </div>
 
-
 <style>
-    .fighters{
+    .fighters {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: 5rem 15rem;
     }
-    .fighter{
+    .fighter {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -146,20 +141,20 @@
         text-align: center;
         background-color: #333;
     }
-    .fighter img{
+    .fighter img {
         width: 100px;
         height: 100px;
     }
-    .resultFight{
+    .resultFight {
         display: flex;
         align-items: center;
         flex-direction: column;
     }
-    .resultFight a{
+    .resultFight a {
         text-decoration: none;
         color: black;
     }
-    h2{
+    h2 {
         text-align: center;
     }
 </style>

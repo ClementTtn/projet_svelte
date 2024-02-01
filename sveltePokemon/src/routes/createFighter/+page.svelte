@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { navigate } from 'svelte-routing';
+    import { navigate } from 'svelte-routing'
 
     export let data
     const pokemons = data?.Pokemons
@@ -12,7 +12,7 @@
 
         let customNameFinal = ''
         if (customName == '') {
-            customNameFinal = pokemons.find(pokemon => String(pokemon.id) === String(selectedPokemonId))?.name;
+            customNameFinal = pokemons.find(pokemon => String(pokemon.id) === String(selectedPokemonId))?.name
         } else {
             customNameFinal = customName
         }
@@ -27,8 +27,8 @@
                 namePokemon: customNameFinal,
             }),
         }).then(() => {
-            navigate('/');
-        });
+            navigate('/')
+        })
     }
 </script>
 
@@ -57,7 +57,7 @@
 </div>
 
 <style>
-    .createFighter{
+    .createFighter {
         display: flex;
         justify-content: center;
         text-align: center;
@@ -71,7 +71,7 @@
         width: 100px;
         height: 100px;
     }
-    .createFighter form{
+    .createFighter form {
         display: flex;
         flex-direction: column;
         margin-top: 10rem;
