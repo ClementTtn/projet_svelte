@@ -13,7 +13,7 @@
         <p><a href="/listFighter">Liste des combattans</a></p>
         <div class="leader">
             {#if leader}
-                <p><b>Leader :</b><img src={imgFighter?.sprites.back_default} alt={imgFighter?.id} />{leader.name}, {leader.points} points</p>
+                <p><b>Leader :</b><img src={imgFighter?.sprites.front_default} alt={imgFighter?.id} />{leader.name}, {leader.points} points</p>
             {/if}
         </div>
     </nav>

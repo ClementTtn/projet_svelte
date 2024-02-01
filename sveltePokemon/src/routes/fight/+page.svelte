@@ -96,7 +96,7 @@
 
 <div class="fighters">
     <div class="fighter">
-        <img src={imgFighter1?.sprites.back_default} alt={imgFighter1?.id} />
+        <img src={imgFighter1?.sprites.front_default} alt={imgFighter1?.id} />
         <b>{fighter1?.name}</b>
         <p>Points de vie :</p>
         <b>{fighter1?.pv}</b>
@@ -105,7 +105,7 @@
     <h2>{round}e round !</h2>
 
     <div class="fighter">
-        <img src={imgFighter2?.sprites.back_default} alt={imgFighter2?.id} />
+        <img src={imgFighter2?.sprites.front_default} alt={imgFighter2?.id} />
         <b>{fighter2?.name}</b>
         <p>Points de vie :</p>
         <b>{fighter2?.pv}</b>

@@ -21,7 +21,7 @@
 
 <div class="fighters">
     <div class="fighter">
-        <img src={imgFighter?.sprites.back_default} alt={imgFighter?.id} />
+        <img src={imgFighter?.sprites.front_default} alt={imgFighter?.id} />
         <b>{fighter?.name}</b>
         <p>Points : <b>{fighter?.points}</b></p>
         <p>Attaque : <b>{fighter?.force}</b></p>

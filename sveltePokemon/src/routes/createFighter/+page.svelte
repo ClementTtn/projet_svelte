@@ -41,7 +41,7 @@
 <div class="createFighter">
     <form method="post" on:submit={handleSubmit}>
         {#if selectedPokemon}
-            <img src={selectedPokemon.sprites.back_default} alt={selectedPokemon.name} />
+            <img src={selectedPokemon.sprites.front_default} alt={selectedPokemon.name} />
         {/if}
         <select bind:value={selectedPokemonId} name="selectPokemon">
             {#each pokemons as pokemon (pokemon.id)} 
